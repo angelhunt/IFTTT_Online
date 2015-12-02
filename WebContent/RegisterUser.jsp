@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>IFTTT用户注册信息</title>
-<link href="stylecss.css" rel="stylesheet" type="text/css" />
+ <link rel="stylesheet" type="text/css" href="css/Login.css" />
 </head>
 <script language="JavaScript">
 
@@ -69,7 +69,7 @@ function checkRegistForm(form){
 
 
 <!--Register.jsp-->
-<body style="background:url('images/RegisterUser.jpg') no-repeat;">
+<body >
 <h1 align="center">&nbsp;IFTTT用户注册表单填写</h1>
 <p align="center">请填写下列注册信息（带“*”的为必填项目）</p>
 
