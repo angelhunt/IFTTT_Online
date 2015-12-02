@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <display-name></display-name>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>StoreUserInfo</servlet-name>
+    <servlet-class>Objects.StoreUserInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>StoreInfo</servlet-name>
+    <servlet-class>Objects.StoreInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckInfo</servlet-name>
+    <servlet-class>Objects.CheckInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckTaskType</servlet-name>
+    <servlet-class>Objects.CheckTaskType</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>StoreTaskInfo</servlet-name>
+    <servlet-class>Objects.StoreTaskInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>BeginTask</servlet-name>
+    <servlet-class>Objects.BeginTask</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserStoreMessage</servlet-name>
+    <servlet-class>Objects.UserStoreMessage</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SysStoreMessage</servlet-name>
+    <servlet-class>Objects.SysStoreMessage</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>StoreUserInfo</servlet-name>
+    <url-pattern>/servlet/StoreUserInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StoreInfo</servlet-name>
+    <url-pattern>/StoreInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckInfo</servlet-name>
+    <url-pattern>/CheckInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckTaskType</servlet-name>
+    <url-pattern>/CheckTaskType</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StoreTaskInfo</servlet-name>
+    <url-pattern>/StoreTaskInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BeginTask</servlet-name>
+    <url-pattern>/BeginTask</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserStoreMessage</servlet-name>
+    <url-pattern>/UserStoreMessage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SysStoreMessage</servlet-name>
+    <url-pattern>/SysStoreMessage</url-pattern>
+  </servlet-mapping>	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
