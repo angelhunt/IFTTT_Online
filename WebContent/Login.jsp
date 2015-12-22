@@ -3,39 +3,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>IFTTT用户登录</title>
 </head>
  <link rel="stylesheet" type="text/css" href="css/Login.css" />
 <body style="background:url('images/backgroup1.jpg') no-repeat;">
+
        <div align="center"> 
             <p><font face="Eras Bold ITC" size="7" color= gray>Welcome to IFTTT</font><br>
             <font face="Eras Bold ITC" size="7"> </font></p>
        </div>
+       
+       
 <div align="center">
-   					
-						<img src="images/user.png" alt=""/>
-					
-  <table width="358" height="110" border="1">
+<p><img src="images/user.png" alt=""/></p>
+<form method="get" action="CheckInfo"> 
+<table width="320" height="161" border="1">
+
+<!-- 第一行 -->
   <tr>
-    <th width="65" height="48" scope="col">用户</th>
-    <th width="277" scope="col"><form id="form2" name="form2" method="post" action="">
-      <label for="ID2"></label>
-      <input type="text" name="ID" id="ID2" />
-    </form></th>
+    <th width="68" scope="col">&nbsp; <div align="center"> 用户名 </div></th>
+    
+    <th width="236" scope="col">&nbsp;<div align="center"> <input name="username" type="text" id="user" /> </div></th>
   </tr>
+  
+  <!-- 第二行 -->
   <tr>
-    <th height="54" scope="col">密码</th>
-    <th scope="col"><form id="form3" name="form3" method="post" action="">
-      <label for="passwd"></label>
-      <input type="text" name="passwd" id="passwd" />
-    </form></th>
+    <th scope="row">&nbsp;<div align="center"> 用户名 </div></th>
+    <th scope="col">&nbsp;<div align="center"> <input name="password" type="text" id="pwd" /> </div></th>
+  </tr>
+  
+  
+  
+    <!-- 第三行 -->
+   <tr>
+    <td scope="row">&nbsp; <input type="submit" name="submit" value="登录" /> </td>
+  </tr>
+     <!-- 第四行 -->
+   <tr>
+    <td scope="row">&nbsp; <a href="RegisterUser.jsp"><input type="submit" name="Submit" value="注册" /></a> </td>
   </tr>
 </table>
-</div>
-<div align="center">
-<form method="post" action="RegisterUser.jsp">
-                        <input type="submit" name="submit2" value="注册" style= "height:30px; width=80px">
-                    </form>
+</form>
 </div>
 </body>   
 </html>

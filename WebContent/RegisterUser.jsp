@@ -1,66 +1,66 @@
-<%@ page language="java" contentType="text/html;charset=gb2312"%>  
-<%@ page import="Objects.StoreInfo" %>
-<html>
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" errorPage="" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>IFTTTÓÃ»§×¢²áÐÅÏ¢</title>
+<title>IFTTTç”¨æˆ·æ³¨å†Œä¿¡æ¯</title>
  <link rel="stylesheet" type="text/css" href="css/Login.css" />
 </head>
 <script language="JavaScript">
 
-//¼ì²â×¢²á±íµ¥
+//æ£€æµ‹æ³¨å†Œè¡¨å•
 function checkRegistForm(form){
-//ÓÃ»§ÃûÊÇ·ñÎª¿Õ
+//ç”¨æˆ·åæ˜¯å¦ä¸ºç©º
 	if(form.username.value == ""){
-		alert("ÇëÊäÈëÓÃ»§Ãû");
+		alert("è¯·è¾“å…¥ç”¨æˆ·å");
 		form.username.focus();
 			return(false);
 	}
-	//ÅÐ¶ÏÓÃ»§Ãû³¤¶ÈºÍºÏ·¨ÐÔ
-	if(form.username.value.match(/^[a-zA-Z]*$/)){
+	//åˆ¤æ–­ç”¨æˆ·åé•¿åº¦å’Œåˆæ³•æ€§
+	if(form.username.value.match(/^[a-zA-Z0-9]*$/)){
 		if(form.username.value.length>20||form.username.value.length<5){
-		alert("¶Ô²»Æð£¬ÓÃ»§Ãû³¤¶ÈÖ»ÄÜÔÚ5-20¸öÖ®¼ä");
+		alert("å¯¹ä¸èµ·ï¼Œç”¨æˆ·åé•¿åº¦åªèƒ½åœ¨5-20ä¸ªä¹‹é—´");
 		return(false);
 		}
 	}
 	else{
-		alert("¶Ô²»Æð£¬Ö»ÔÊÐíÊäÈë×ÖÄ¸");
+		alert("å¯¹ä¸èµ·ï¼Œåªå…è®¸è¾“å…¥å­—æ¯å’Œæ•°å­—");
 		return(false);
 	} 
 	
-	//ÃÜÂëÊÇ·ñÎª¿Õ
+	//å¯†ç æ˜¯å¦ä¸ºç©º
 	if (form.password.value == ""){
-		alert("ÇëÊäÈë×¢²áÃÜÂë");
+		alert("è¯·è¾“å…¥æ³¨å†Œå¯†ç ");
 		form.password.focus();
 		return (false);
 	}
-	//ÅÐ¶ÏÃÜÂëºÏ·¨ÐÔ
+	//åˆ¤æ–­å¯†ç åˆæ³•æ€§
 	if(form.password.value.length>20||form.password.value.length<5){
-		alert("¶Ô²»Æð£¬ÃÜÂë³¤¶ÈÖ»ÄÜÔÚ5-20¸öÖ®¼ä");
+		alert("å¯¹ä¸èµ·ï¼Œå¯†ç é•¿åº¦åªèƒ½åœ¨5-20ä¸ªä¹‹é—´");
 		return(false);
 	}
-	//ÖØ¸´ÃÜÂëµÄÊäÈë
+	//é‡å¤å¯†ç çš„è¾“å…¥
 	if (form.checkpassword.value == ""){
-		alert("ÇëÔÙ´ÎÊäÈë×¢²áÃÜÂë");
+		alert("è¯·å†æ¬¡è¾“å…¥æ³¨å†Œå¯†ç ");
 		form.password.focus();
 		return (false);
 	}
 	
 	
-	//Á½´ÎÃÜÂëÊÇ·ñÒ»ÖÂ
+	//ä¸¤æ¬¡å¯†ç æ˜¯å¦ä¸€è‡´
 	if(form.password.value != form.checkpassword.value){
-		alert("Á½´ÎÊäÈëµÄÃÜÂë²»Ò»ÖÂ");
+		alert("ä¸¤æ¬¡è¾“å…¥çš„å¯†ç ä¸ä¸€è‡´");
 		form.password.focus();
 		return(false);
 	}
 	
-	//µç×ÓÓÊÏäÊÇ·ñÕýÈ·
+	//ç”µå­é‚®ç®±æ˜¯å¦æ­£ç¡®
 	if(form.email.value == "" ){
-		alert("ÇëÊäÈëµç×ÓÓÊÏäµØÖ·");
+		alert("è¯·è¾“å…¥ç”µå­é‚®ç®±åœ°å€");
 		form.email.focus();
 		return(false);
 	}
 	if(form.email.value.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1){
-		alert("ÄãÊäÈëµÄµç×ÓÓÊÏäµØÖ·²»ÕýÈ·");
+		alert("ä½ è¾“å…¥çš„ç”µå­é‚®ç®±åœ°å€ä¸æ­£ç¡®");
 		form.email.focus();
 		return(false);
 	}
@@ -69,9 +69,12 @@ function checkRegistForm(form){
 
 
 <!--Register.jsp-->
-<body >
-<h1 align="center">&nbsp;IFTTTÓÃ»§×¢²á±íµ¥ÌîÐ´</h1>
-<p align="center">ÇëÌîÐ´ÏÂÁÐ×¢²áÐÅÏ¢£¨´ø¡°*¡±µÄÎª±ØÌîÏîÄ¿£©</p>
+<body style="background:url('images/backgroup1.jpg') no-repeat;">
+       <div align="center"> 
+            <p><font face="Eras Bold ITC" size="7" color= gray>ç”¨æˆ·æ³¨å†Œè¡¨å•</font><br>
+            <font face="Eras Bold ITC" size="7"> </font></p>
+       </div>
+<p align="center">è¯·å¡«å†™ä¸‹åˆ—æ³¨å†Œä¿¡æ¯ï¼ˆå¸¦â€œ*â€çš„ä¸ºå¿…å¡«é¡¹ç›®ï¼‰</p>
 
 
 
@@ -80,88 +83,88 @@ function checkRegistForm(form){
 		action="StoreInfo" name="form">
   <table width="100%" border="0" align="center">
     <tr>
-      <td width="19%" height="26"><div align="center">*ÓÃ»§Ãû</div></td>
+      <td width="19%" height="26"><div align="center">*ç”¨æˆ·å</div></td>
       <td width="26%"><input name="username" type="text" size="20" maxlength="20" /></td>
-      <td width="55%">Ö»ÔÊÐíÊäÈë×ÖÄ¸£¬³¤¶ÈÔÚ5-20Ö®¼ä</td>
+      <td width="55%">åªå…è®¸è¾“å…¥å­—æ¯å’Œæ•°å­—ï¼Œé•¿åº¦åœ¨5-20ä¹‹é—´</td>
     </tr>
 	 <tr>
-      <td><div align="center">*ÃÜÂë</div></td>
+      <td><div align="center">*å¯†ç </div></td>
       <td height="5"><label>
         <input name="password" type="password" size="20" maxlength="20" />
         </label>      </td>
-      <td height="5">³¤¶ÈÔÚ5-20Ö®¼ä</td>
+      <td height="5">é•¿åº¦åœ¨5-20ä¹‹é—´</td>
     </tr>
     <tr>
-	<td><div align="center">*ÖØ¸´ÃÜÂë</div></td>
+	<td><div align="center">*é‡å¤å¯†ç </div></td>
       <td height="7"><label>
         <input name="checkpassword" type="password" size="20" maxlength="20" />
         </label>      </td>
-      <td height="7">ÇëÓëËùÌîÃÜÂëÒ»ÖÂ</td>
+      <td height="7">è¯·ä¸Žæ‰€å¡«å¯†ç ä¸€è‡´</td>
     </tr>
 	<tr>
-      <td><div align="center">*µç×ÓÓÊÏä</div></td>
+      <td><div align="center">*ç”µå­é‚®ç®±</div></td>
       <td height="14"><input name="email" type="text" size="20" maxlength="20" /></td>
-      <td height="14">ÇëÊäÈëÕýÈ·µÄÓÊÏäµØÖ·£¬ÕâÊÇÎÒÃÇÁªÏµÄãµÄ·½Ê½</td>
+      <td height="14">è¯·è¾“å…¥æ­£ç¡®çš„é‚®ç®±åœ°å€ï¼Œè¿™æ˜¯æˆ‘ä»¬è”ç³»ä½ çš„æ–¹å¼</td>
 	</tr>
     <tr>
-      <td height="30"><div align="center">ÐÔ±ð</div></td>
-      <td colspan="2"><label>ÄÐ
+      <td height="30"><div align="center">æ€§åˆ«</div></td>
+      <td colspan="2"><label>ç”·
             <input name="sex" type="radio" value="search engine" checked="checked" />
         </label>
-          <label>Å®
-            <input name="sex" type="radio" value="Å®" />
+          <label>å¥³
+            <input name="sex" type="radio" value="å¥³" />
           </label></td>
     </tr>
     <tr>
-      <td height="35"><div align="center">³öÉúÄêÔÂ</div></td>
+      <td height="35"><div align="center">å‡ºç”Ÿå¹´æœˆ</div></td>
       <td colspan="2"><label>
         <input name="year" type="text" id="year" size="4" maxlength="4" />
         </label>
-        Äê
+        å¹´
         <label></label>
         <label for="textfield"></label>
         <input name="month" type="text" id="month" size="2" maxlength="2" />
-        ÔÂ
+        æœˆ
         <label for="label"></label>
         <input name="day" type="text" id="label" size="2" maxlength="2" />
         <label></label>
-        ÈÕ </td>
+        æ—¥ </td>
     </tr>
     <tr>
-      <td height="32"><div align="center">¹ú¼Ò</div></td>
+      <td height="32"><div align="center">å›½å®¶</div></td>
       <td colspan="2"><label> </label>
           <label for="label4"></label>
           <label for="select"></label>
           <select name="select" id="select">
-            <option>ÖÐ¹ú</option>
-            <option>ÈÕ±¾</option>
-            <option>º«¹ú</option>
-            <option>ÃÀ¹ú</option>
-            <option>Å·ÃË</option>
-            <option>ÆäËü</option>
+            <option>ä¸­å›½</option>
+            <option>æ—¥æœ¬</option>
+            <option>éŸ©å›½</option>
+            <option>ç¾Žå›½</option>
+            <option>æ¬§ç›Ÿ</option>
+            <option>å…¶å®ƒ</option>
         </select>      </td>
     </tr>
     <tr>
-      <td height="-2"><div align="center">ÐËÈ¤°®ºÃ</div></td>
-      <td colspan="2"><label for="label5">¿´µçÓ°</label>
+      <td height="-2"><div align="center">å…´è¶£çˆ±å¥½</div></td>
+      <td colspan="2"><label for="label5">çœ‹ç”µå½±</label>
           <input type="checkbox" name="checkbox4" value="checkbox" id="label5" />
-          <label for="label6">¹ºÎï</label>
+          <label for="label6">è´­ç‰©</label>
           <input type="checkbox" name="checkbox22" value="checkbox" id="label6" />
           <label for="checkbox2"></label>
-          <label for="label7">ÆäËü</label>
+          <label for="label7">å…¶å®ƒ</label>
           <input type="checkbox" name="checkbox32" value="checkbox" id="label7" />
           <label></label>
           <label></label></td>
     </tr>
     <tr>
-      <td height="17"><div align="center">±¸×¢</div></td>
+      <td height="17"><div align="center">å¤‡æ³¨</div></td>
       <td colspan="2"><label for="label8"></label>
           <textarea name="textarea3" rows="6" id="label8"></textarea>      </td>
     </tr>
     <tr>
       <td height="22">&nbsp;</td>
-      <td height="22" colspan="2"><input name="submit" type="submit"  value="Ìá½»" />
-          <input name="Submit22" type="reset" value="ÖØÖÃ">      </td>
+      <td height="22" colspan="2"><input name="submit" type="submit"  value="æäº¤" />
+          <input name="Submit22" type="reset" value="é‡ç½®">      </td>
     </tr>
   </table>
 </form>

@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import MyDao.Dao;
 import Model.*;
 
 public class Dao {
@@ -25,8 +26,11 @@ public class Dao {
            Dao d = new Dao();
 		   System.out.println(conn);
 		 // addUser(new User("MHJ", "123"));
-		   User  t = d.selectUser("123");
+		   boolean tf=Dao.CheckUser("1137633684", "14719961233");
+		   User  t = d.selectUser("1137633684");
 		   System.out.println(t.getPassWord());
+			//User user=new User("1137633684", "14719961233");
+			//Dao.addUser(user);
 	}
 	private Dao(){
 		try{

@@ -20,6 +20,11 @@ public class SendWeibo extends That{
 	protected String passWord;
 	protected String message;
 	
+	public static void main()
+	{
+
+	
+	}
 	public String getID() {
 		return ID;
 	}
